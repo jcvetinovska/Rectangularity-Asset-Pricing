@@ -1,5 +1,5 @@
 
-# On Rectangularity in Distributional Robust Asset Pricing
+# On Rectangularity in Distributionally Robust Asset Pricing
 
 In this thesis, we reformulate robust superhedging as a robust Markov decision process (MDP) and compare rectangular and non-rectangular prices for a parametric volatility uncertainty model in order to quantify the gap. We assume we don't know the true distribution of the returns of the underlying and thus want to price against a whole set of possible models and charge enough to hedge under the worst one.
 
@@ -11,9 +11,37 @@ The numerical results show that the rectangularity gap can be large when uncerta
 
 We make two main contributions. First, we introduce and analyze the rectangularity gap, defined as the difference between the robust superhedging price under the rectangularized ambiguity set and the price under the original non-rectangular ambiguity set. We show that this gap is nonnegative and relate it to the loss of global consistency constraints across time. We also derive theoretical examples and structural results that identify when the gap can vanish and when it can become economically significant.
 
-## Numerical results
+## Methods Compared
 
-Both experiments use the volatility-interval ambiguity set σ ∈ [0, 0.2]. The rectangular price π_R (dynamic programming) is compared against the non-rectangular price computed by the discretized linear program (π_NR, exact for T ≤ 8) and by the actor–critic algorithm (extending the comparison to T = 14).
+- **Discretized ambiguity set LP for nonrectangular price**
+  For $$m = 1,\dots, M$$ sigma values in the ambiguity set, solves:
+$$
+\min_x \quad x
+$$
+
+subject to:
+$$
+x + \sum_{t=0}^{T-1} h_t(\sigma,\text{history})\,\Delta S_{t+1}
+\ge \zeta
+$$
+
+for all paths $(\sigma^m, \omega)$
+
+- **Dynamic programming solution for rectangular price**
+- **Actor-critic algorithm for nonrectangular price (Algorithm 4.1 from )**
+
+  **Require:** Iteration number $K \in \mathbb{N}$, step size $\eta > 0$, tolerance $\epsilon > 0$
+  
+  1. Initialize $\pi^{(0)}(a \mid Z) = 1/|\mathcal{A}|$ for all $Z \in \mathcal{Z}$, $a \in \mathcal{A}$; set $k \gets 0$.
+  2. **while** $k \leq K - 1$ **do**
+     1. **Critic:** find $\theta^{(k)} \in \Theta$ such that $V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0) \geq V_{\pi^{(k)}}^{\star}(Z_0) - \epsilon$ (e.g. via the FW-critic algorithm).
+     2. **Actor:** $\pi^{(k+1)} \gets \mathrm{Proj}_{\Pi}\!\left(\pi^{(k)} - \eta\,\nabla_{\pi} V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0)\right)$
+     3. $k \gets k + 1$
+  3. **end while**
+  4. **return** $\pi^{(K)}$
+  
+  ## Numerical results
+
 
 **Digital call `1{S_T ≥ K}`.** The payoff is bounded, so the rectangular price saturates at 1 and the gap stabilizes.
 
