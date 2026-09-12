@@ -14,32 +14,31 @@ We make two main contributions. First, we introduce and analyze the rectangulari
 ## Methods Compared
 
 - **Discretized ambiguity set LP for nonrectangular price**
-  For $$m = 1,\dots, M$$ sigma values in the ambiguity set, solves:
-  $$
+  For ```math m = 1,\dots, M ``` sigma values in the ambiguity set, solves:
+  ```math
   \min_x \quad x
-  $$
+  ```
   
   subject to:
-  $$
+  ```math
   x + \sum_{t=0}^{T-1} h_t(\sigma,\text{history})\,\Delta S_{t+1}
   \ge \zeta
-  $$
+  ```
   
-  for all paths $(\sigma^m, \omega)$
+  for all paths ```math (\sigma^m, \omega) ```
 
 - **Dynamic programming solution for rectangular price**
   Terminal condition:
-  
-  $$
+
+  ```math
   V_T(s) = \mathbf{1}_{\{s \ge K\}}
-  $$
+  ```
   
   Backward step:
   
-  $$
-  V_t(s) = \min_a \max_{\sigma \in \{\text{lo, hi}\}, \varepsilon}
-  \left[ V_{t+1}(s + \mu + \sigma \varepsilon) - a(\mu + \sigma \varepsilon) \right]
-  $$
+  ```math
+  V_t(s) = \min_a \max_{\sigma \in \{\text{lo, hi}\}, \varepsilon} \left[ V_{t+1}(s + \mu + \sigma \varepsilon) - a(\mu + \sigma \varepsilon) \right]
+  ```
 
 - **Actor-critic algorithm for nonrectangular price (Algorithm 4.1 from Li, Kuhn, and Sutter (2026))**
 
