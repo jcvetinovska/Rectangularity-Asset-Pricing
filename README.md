@@ -35,7 +35,7 @@ for all paths $(\sigma^m, \omega)$
   1. Initialize $\pi^{(0)}(a \mid Z) = 1/|\mathcal{A}|$ for all $Z \in \mathcal{Z}$, $a \in \mathcal{A}$; set $k \gets 0$.
   2. **while** $k \leq K - 1$ **do**
      1. **Critic:** find $\theta^{(k)} \in \Theta$ such that $V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0) \geq V_{\pi^{(k)}}^{\star}(Z_0) - \epsilon$ (e.g. via the FW-critic algorithm).
-     2. **Actor:** $\pi^{(k+1)} \gets \mathrm{Proj}_{\Pi}\left(\pi^{(k)} - \eta \nabla_{\pi} V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0)\right)$
+        2. **Actor:** $$\pi^{(k+1)} \gets \mathrm{Proj}_{\Pi}\left(\pi^{(k)} - \eta \nabla_{\pi} V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0)\right)$$
      3. $k \gets k + 1$
   3. **end while**
   4. **return** $\pi^{(K)}$
