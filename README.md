@@ -17,17 +17,22 @@ Both experiments use the volatility-interval ambiguity set σ ∈ [0, 0.2]. The 
 
 **Digital call `1{S_T ≥ K}`.** The payoff is bounded, so the rectangular price saturates at 1 and the gap stabilizes.
 
-![Digital call: robust superhedging price vs. horizon](figures/digital_call_horizon.jpg)
+![Digital call: robust superhedging price vs. horizon](Figures/horizon_digital.jpg)
+
+
+![Digital call: robust superhedging price vs. half-interval width](Figures/radius_digital.jpg)
 
 **European call `max(S_T − K, 0)`.** The payoff is unbounded and 1-Lipschitz, so both prices grow with the horizon and the gap widens without saturating.
 
-![European call: robust superhedging price vs. horizon](figures/european_call_horizon.jpg)
+![European call: robust superhedging price vs. horizon](Figures/horizon_european.jpg)
+
+![Digital call: robust superhedging price vs. half-interval width](Figures/radius_european.jpg)
 
 ## Repository
 
 ```
-sigma_interval_digital_call.ipynb    # digital call experiments (Figure 5)
-sigma_interval_european_call.ipynb   # European call experiments (Figure 7)
+sigma_interval_digital_call.ipynb    # digital call experiments 
+sigma_interval_european_call.ipynb   # European call experiments 
 figures/                             # result plots
 ```
 
@@ -38,7 +43,6 @@ pip install numpy scipy cvxpy matplotlib jupyter
 jupyter lab
 ```
 
-Default parameters: S₀ = 1.0, K = 1.1, drift µ = 0.02, T = 3, σ ∈ [0, 0.2], LP discretization M = 45, action grid 13 points on [−2, 2], wealth grid 31 points on [−1, 2], actor–critic 120 iterations, step size η = 0.05.
 
 ## References
 
