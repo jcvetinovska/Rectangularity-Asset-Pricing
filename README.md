@@ -30,15 +30,16 @@ for all paths $(\sigma^m, \omega)$
 - **Dynamic programming solution for rectangular price**
 - **Actor-critic algorithm for nonrectangular price (Algorithm 4.1 from Li, Kuhn, and Sutter (2026))**
 
-  **Require:** Iteration number $K \in \mathbb{N}$, step size $\eta > 0$, tolerance $\epsilon > 0$
-  
-  1. Initialize $\pi^{(0)}(a \mid Z) = 1/|\mathcal{A}|$ for all $Z \in \mathcal{Z}$, $a \in \mathcal{A}$; set $k \gets 0$.
-  2. **while** $k \leq K - 1$ **do**
-     1. **Critic:** find $\theta^{(k)} \in \Theta$ such that $V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0) \geq V_{\pi^{(k)}}^{\star}(Z_0) - \epsilon$ (e.g. via the FW-critic algorithm).
-        2. **Actor:** $$\pi^{(k+1)} \gets \mathrm{Proj}_{\Pi}\left(\pi^{(k)} - \eta \nabla_{\pi} V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0)\right)$$
-     3. $k \gets k + 1$
-  3. **end while**
-  4. **return** $\pi^{(K)}$
+    ```
+    Require: K ∈ ℕ, step size η > 0, tolerance ε > 0
+    1: Initialize π⁽⁰⁾(a|Z) = 1/|A| for all Z ∈ Z, a ∈ A; set k ← 0
+    2: while k ≤ K−1 do
+    3:     Critic: find θ⁽ᵏ⁾ ∈ Θ s.t. V_{π⁽ᵏ⁾}^{P^{θ⁽ᵏ⁾}}(Z₀) ≥ V*_{π⁽ᵏ⁾}(Z₀) − ε
+    4:     Actor:  π⁽ᵏ⁺¹⁾ ← Proj_Π( π⁽ᵏ⁾ − η ∇_π V_{π⁽ᵏ⁾}^{P^{θ⁽ᵏ⁾}}(Z₀) )
+    5:     k ← k + 1
+    6: end while
+    7: return π⁽ᵏ⁾
+    ```
   
   ## Numerical results
 
