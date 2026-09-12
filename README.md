@@ -14,7 +14,7 @@ We make two main contributions. First, we introduce and analyze the rectangulari
 ## Methods Compared
 
 - **Discretized ambiguity set LP for nonrectangular price**
-  For ```math m = 1,\dots, M ``` sigma values in the ambiguity set, solves:
+  For m = 1,..., M sigma values in the ambiguity set, solves:
   ```math
   \min_x \quad x
   ```
@@ -25,7 +25,9 @@ We make two main contributions. First, we introduce and analyze the rectangulari
   \ge \zeta
   ```
   
-  for all paths ```math (\sigma^m, \omega) ```
+  for all paths
+  ```math (\sigma^m, \omega)
+  ```
 
 - **Dynamic programming solution for rectangular price**
   Terminal condition:
