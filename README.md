@@ -28,14 +28,14 @@ $$
 for all paths $(\sigma^m, \omega)$
 
 - **Dynamic programming solution for rectangular price**
-- **Actor-critic algorithm for nonrectangular price (Algorithm 4.1 from )**
+- **Actor-critic algorithm for nonrectangular price (Algorithm 4.1 from Li, Kuhn, and Sutter (2026))**
 
   **Require:** Iteration number $K \in \mathbb{N}$, step size $\eta > 0$, tolerance $\epsilon > 0$
   
   1. Initialize $\pi^{(0)}(a \mid Z) = 1/|\mathcal{A}|$ for all $Z \in \mathcal{Z}$, $a \in \mathcal{A}$; set $k \gets 0$.
   2. **while** $k \leq K - 1$ **do**
      1. **Critic:** find $\theta^{(k)} \in \Theta$ such that $V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0) \geq V_{\pi^{(k)}}^{\star}(Z_0) - \epsilon$ (e.g. via the FW-critic algorithm).
-     2. **Actor:** $\pi^{(k+1)} \gets \mathrm{Proj}_{\Pi}\!\left(\pi^{(k)} - \eta\,\nabla_{\pi} V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0)\right)$
+     2. **Actor:** $\pi^{(k+1)} \gets \mathrm{Proj}_{\Pi}\left(\pi^{(k)} - \eta \nabla_{\pi} V_{\pi^{(k)}}^{P^{\theta^{(k)}}}(Z_0)\right)$
      3. $k \gets k + 1$
   3. **end while**
   4. **return** $\pi^{(K)}$
@@ -79,3 +79,4 @@ jupyter lab
 - Iyengar (2005), *Robust dynamic programming.*
 - Nilim and El Ghaoui (2005), *Robust control of Markov decision processes with uncertain transition matrices.*
 - Wiesemann, Kuhn and Rustem (2013), *Robust Markov decision processes.*
+- Li, Kuhn, and Sutter (2026) *Policy gradient algorithms for robust MDPs with non-rectangular uncertainty sets.*
