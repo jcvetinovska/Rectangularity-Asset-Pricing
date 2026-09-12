@@ -17,16 +17,16 @@ Both experiments use the volatility-interval ambiguity set σ ∈ [0, 0.2]. The 
 
 **Digital call `1{S_T ≥ K}`.** The payoff is bounded, so the rectangular price saturates at 1 and the gap stabilizes.
 
-![Digital call: robust superhedging price vs. horizon](Figures/horizon_digital.jpg)
+![Digital call: robust superhedging price vs. horizon](Figures/horizon_digital.png)
 
 
-![Digital call: robust superhedging price vs. half-interval width](Figures/radius_digital.jpg)
+![Digital call: robust superhedging price vs. half-interval width](Figures/radius_digital.png)
 
 **European call `max(S_T − K, 0)`.** The payoff is unbounded and 1-Lipschitz, so both prices grow with the horizon and the gap widens without saturating.
 
-![European call: robust superhedging price vs. horizon](Figures/horizon_european.jpg)
+![European call: robust superhedging price vs. horizon](Figures/horizon_call.png)
 
-![Digital call: robust superhedging price vs. half-interval width](Figures/radius_european.jpg)
+![Digital call: robust superhedging price vs. half-interval width](Figures/radius_call.png)
 
 ## Repository
 
