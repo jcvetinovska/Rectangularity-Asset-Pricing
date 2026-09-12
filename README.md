@@ -29,15 +29,17 @@ We make two main contributions. First, we introduce and analyze the rectangulari
 
 - **Dynamic programming solution for rectangular price**
   Terminal condition:
-    $$
-    V_T(s) = \mathbf{1}_{\{s \ge K\}}
-    $$
-    
-    Backward step:
-    $$
-    V_t(s) = \min_a \max_{\sigma \in \{\text{lo, hi}\}, \varepsilon}
-    \left[ V_{t+1}(s + \mu + \sigma \varepsilon) - a(\mu + \sigma \varepsilon) \right]
-    $$
+  
+  $$
+  V_T(s) = \mathbf{1}_{\{s \ge K\}}
+  $$
+  
+  Backward step:
+  
+  $$
+  V_t(s) = \min_a \max_{\sigma \in \{\text{lo, hi}\}, \varepsilon}
+  \left[ V_{t+1}(s + \mu + \sigma \varepsilon) - a(\mu + \sigma \varepsilon) \right]
+  $$
 
 - **Actor-critic algorithm for nonrectangular price (Algorithm 4.1 from Li, Kuhn, and Sutter (2026))**
 
@@ -52,7 +54,7 @@ We make two main contributions. First, we introduce and analyze the rectangulari
     7: return π⁽ᵏ⁾
     ```
   
-  ## Numerical results
+## Numerical results
 
 
 **Digital call `1{S_T ≥ K}`.** The payoff is bounded, so the rectangular price saturates at 1 and the gap stabilizes.
