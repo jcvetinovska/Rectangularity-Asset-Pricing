@@ -26,7 +26,7 @@ Both experiments use the volatility-interval ambiguity set σ ∈ [0, 0.2]. The 
 
 ![European call: robust superhedging price vs. horizon](Figures/horizon_call.png)
 
-![Digital call: robust superhedging price vs. half-interval width](Figures/radius.png)
+![Digital call: robust superhedging price vs. half-interval width](Figures/radius_call.png)
 
 ## Repository
 
